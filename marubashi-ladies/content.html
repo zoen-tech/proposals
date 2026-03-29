@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>SEO競合調査 - まるはし女性応援クリニック | ZOEN-TECH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-main: #009aa2;
+      --color-main-light: #e6f6f7;
+      --color-main-dark: #007a80;
+      --color-text: #333;
+      --color-sub: #646464;
+      --color-bg: #ffffff;
+      --color-bg-section: #f8fafa;
+      --color-border: #e0e0e0;
+      --color-highlight: #fff3cd;
+      --color-self: #009aa2;
+      --color-benchmark: #d4740e;
+      --font-heading: 'Raleway', 'Noto Sans JP', sans-serif;
+      --font-body: 'Noto Sans JP', '游ゴシック体', 'Yu Gothic', 'YuGothic', 'Meiryo', sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    /* Header */
+    .header {
+      background: var(--color-main);
+      color: #fff;
+      padding: 32px 0;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .header-company {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      opacity: 0.85;
+      margin-bottom: 8px;
+    }
+    .header h1 {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .header-meta {
+      margin-top: 12px;
+      font-size: 13px;
+      opacity: 0.8;
+      display: flex;
+      gap: 24px;
+    }
+
+    /* Main */
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 48px;
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-main);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--color-main);
+      margin-bottom: 20px;
+    }
+    .section-note {
+      font-size: 12px;
+      color: var(--color-sub);
+      margin-top: 8px;
+    }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      min-width: 900px;
+      table-layout: fixed;
+    }
+    table.table-wide {
+      min-width: 1400px;
+      table-layout: fixed;
+    }
+    table.table-wide thead th:first-child {
+      width: 100px;
+    }
+    table.table-wide tbody td {
+      min-width: 200px;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+    thead th {
+      background: var(--color-main);
+      color: #fff;
+      font-weight: 700;
+      padding: 12px 14px;
+      text-align: center;
+      white-space: nowrap;
+      font-size: 12px;
+    }
+    thead th:first-child {
+      text-align: left;
+      width: 140px;
+    }
+    thead th.self {
+      background: var(--color-main-dark);
+    }
+    thead th.benchmark {
+      background: var(--color-benchmark);
+    }
+    tbody td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--color-border);
+      text-align: center;
+      vertical-align: top;
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+    tbody td:first-child {
+      text-align: left;
+      font-weight: 500;
+      color: var(--color-sub);
+      background: var(--color-bg-section);
+      white-space: nowrap;
+    }
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+    tbody tr:hover td {
+      background: var(--color-main-light);
+    }
+    tbody tr:hover td:first-child {
+      background: #ddf0f1;
+    }
+
+    /* Cell highlights */
+    .val-top {
+      font-weight: 700;
+      color: var(--color-self);
+    }
+    .val-warn {
+      color: #c0392b;
+      font-weight: 500;
+    }
+    .rank-1 {
+      background: #e6f6f7;
+      font-weight: 700;
+      color: var(--color-main-dark);
+    }
+    .rank-out {
+      color: #bbb;
+    }
+    .tag-self {
+      display: inline-block;
+      background: var(--color-main);
+      color: #fff;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .tag-bm {
+      display: inline-block;
+      background: var(--color-benchmark);
+      color: #fff;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    /* Card */
+    .card {
+      background: var(--color-bg-section);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-main);
+      margin-bottom: 12px;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--color-bg-section);
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--color-sub);
+    }
+    .footer a {
+      color: var(--color-main);
+      text-decoration: none;
+    }
+
+    /* Link */
+    a {
+      color: var(--color-main);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 { font-size: 18px; }
+      .header-meta { flex-direction: column; gap: 4px; }
+      .section-title { font-size: 16px; }
+      table { font-size: 12px; }
+      thead th, tbody td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-company">ZOEN-TECH CO., LTD.</div>
+    <h1>SEO競合調査レポート</h1>
+    <p style="margin-top:4px; font-size:15px;">まるはし女性応援クリニック 様</p>
+    <div class="header-meta">
+      <span>調査日: 2026-03-28</span>
+      <span>対象エリア: 東京都立川市（立川駅周辺）</span>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- 調査対象 -->
+  <section class="section">
+    <h2 class="section-title">調査対象</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th class="self">自社</th>
+            <th class="benchmark">ベンチマーク</th>
+            <th>競合他社</th>
+            <th>競合他社</th>
+            <th>競合他社</th>
+            <th>競合他社</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>サイト名</td>
+            <td><strong>まるはし女性応援クリニック</strong></td>
+            <td>アイリスウィメンズクリニック立川</td>
+            <td>井上レディースクリニック</td>
+            <td>こむかい産婦人科</td>
+            <td>毛利もとこ女性クリニック</td>
+            <td>たけだ乳腺・婦人科クリニック</td>
+          </tr>
+          <tr>
+            <td>URL</td>
+            <td><a href="https://www.marugyne.com/" target="_blank">marugyne.com</a></td>
+            <td><a href="https://womens-tachikawa.iris-clinic.jp/" target="_blank">iris-clinic.jp</a></td>
+            <td><a href="https://www.inoue-ladies.jp/" target="_blank">inoue-ladies.jp</a></td>
+            <td><a href="https://komukai.net/" target="_blank">komukai.net</a></td>
+            <td><a href="https://www.josei-clinic.com/" target="_blank">josei-clinic.com</a></td>
+            <td><a href="https://tkdblc.com/" target="_blank">tkdblc.com</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 指名検索 -->
+  <section class="section">
+    <h2 class="section-title">指名検索ボリューム</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th class="self">まるはし</th>
+            <th class="benchmark">アイリス</th>
+            <th>井上LC</th>
+            <th>こむかい</th>
+            <th>毛利もとこ</th>
+            <th>たけだ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>指名検索Vol（合計）</td>
+            <td class="val-top"><strong>1,700</strong></td>
+            <td>1,000</td>
+            <td>750</td>
+            <td>640</td>
+            <td>760</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>検索パターン (1)</td>
+            <td>まるはし女性応援クリニック</td>
+            <td>アイリスウィメンズクリニック 立川</td>
+            <td>井上レディースクリニック 立川</td>
+            <td>こむかい産婦人科</td>
+            <td>毛利もとこ女性クリニック</td>
+            <td>たけだ乳腺婦人科クリニック</td>
+          </tr>
+          <tr>
+            <td>検索パターン (2)</td>
+            <td>まるはし女性応援</td>
+            <td>アイリスウィメンズ 立川</td>
+            <td>井上レディースクリニック</td>
+            <td>こむかい産婦人科 立川</td>
+            <td>毛利もとこ</td>
+            <td>たけだ乳腺 立川</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- アクセス・コンテンツ -->
+  <section class="section">
+    <h2 class="section-title">アクセス・コンテンツ</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th class="self">まるはし</th>
+            <th class="benchmark">アイリス</th>
+            <th>井上LC</th>
+            <th>こむかい</th>
+            <th>毛利もとこ</th>
+            <th>たけだ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>オーガニックトラフィック</td>
+            <td class="val-top"><strong>3,638</strong></td>
+            <td>918</td>
+            <td>726</td>
+            <td>1,016</td>
+            <td>716</td>
+            <td>1,556</td>
+          </tr>
+          <tr>
+            <td>オーガニックKW数</td>
+            <td class="val-top"><strong>656</strong></td>
+            <td>220</td>
+            <td>210</td>
+            <td>123</td>
+            <td>27</td>
+            <td>156</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-note">* トラフィック・KW数は Ahrefs 推計値（2026年3月時点）</p>
+  </section>
+
+  <!-- 外部リンク -->
+  <section class="section">
+    <h2 class="section-title">外部リンク（Ahrefs）</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th class="self">まるはし</th>
+            <th class="benchmark">アイリス</th>
+            <th>井上LC</th>
+            <th>こむかい</th>
+            <th>毛利もとこ</th>
+            <th>たけだ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>参照ドメイン数</td>
+            <td class="val-top"><strong>264</strong></td>
+            <td>9</td>
+            <td>162</td>
+            <td>68</td>
+            <td>64</td>
+            <td>32</td>
+          </tr>
+          <tr>
+            <td>被リンク数</td>
+            <td class="val-top"><strong>728</strong></td>
+            <td>383</td>
+            <td>574</td>
+            <td>228</td>
+            <td>176</td>
+            <td>76</td>
+          </tr>
+          <tr>
+            <td>DR（ドメインレーティング）</td>
+            <td>18</td>
+            <td>13</td>
+            <td class="val-top"><strong>31</strong></td>
+            <td>16</td>
+            <td>9</td>
+            <td>8</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- キーワード順位 -->
+  <section class="section">
+    <h2 class="section-title">キーワード順位</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>キーワード</th>
+            <th>月間Vol</th>
+            <th class="self">まるはし</th>
+            <th class="benchmark">アイリス</th>
+            <th>井上LC</th>
+            <th>こむかい</th>
+            <th>毛利もとこ</th>
+            <th>たけだ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>立川 婦人科</td>
+            <td>350</td>
+            <td>3位</td>
+            <td class="rank-1">1位</td>
+            <td>-</td>
+            <td>-</td>
+            <td>2位</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>立川 婦人科 おすすめ</td>
+            <td>150</td>
+            <td>2位</td>
+            <td class="rank-1">1位</td>
+            <td>8位</td>
+            <td>5位</td>
+            <td>4位</td>
+            <td>6位</td>
+          </tr>
+          <tr>
+            <td>立川 中絶</td>
+            <td>10</td>
+            <td>2位</td>
+            <td>3位</td>
+            <td>4位</td>
+            <td>9位</td>
+            <td>5位</td>
+            <td class="rank-out">圏外</td>
+          </tr>
+          <tr>
+            <td>立川 アフターピル</td>
+            <td>60</td>
+            <td>10位</td>
+            <td class="rank-1">1位</td>
+            <td class="rank-out">圏外</td>
+            <td>3位</td>
+            <td class="rank-out">圏外</td>
+            <td>9位</td>
+          </tr>
+          <tr>
+            <td>立川 モナリザタッチ</td>
+            <td>-</td>
+            <td class="rank-1">1位（独占）</td>
+            <td class="rank-out">圏外</td>
+            <td class="rank-out">圏外</td>
+            <td class="rank-out">圏外</td>
+            <td class="rank-out">圏外</td>
+            <td class="rank-out">圏外</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SEO戦略分析 -->
+  <section class="section">
+    <h2 class="section-title">SEO戦略分析</h2>
+    <div class="table-wrap">
+      <table class="table-wide">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th class="self">まるはし</th>
+            <th class="benchmark">アイリス</th>
+            <th>井上LC</th>
+            <th>こむかい</th>
+            <th>毛利もとこ</th>
+            <th>たけだ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>内部対策</td>
+            <td>構造化データ実装済（WebSite/Organization/BreadcrumbList）。meta descriptionなし。titleに狙うべきKW未含有。<span class="val-warn">TOPページのH1/見出しタグが適切に設定されていない</span>。<span class="val-warn">パンくずリストなし</span>。<span class="val-warn">アフターピルページのtitle/見出しが「緊急避妊」のみで「立川 アフターピル」を狙う構成になっていない</span></td>
+            <td>MedicalClinicスキーマ実装。title/descriptionにKW含有。H1が複数存在。パンくず階層が不十分</td>
+            <td>サイトマップ・パンくず導線あり。meta description未確認。内部リンク構造は充実</td>
+            <td>GTM/GA実装あり。LocalBusinessスキーマなし。パンくず実装あり。グローバルメニュー充実</td>
+            <td>LocalBusinessスキーマ実装。H1不明確。パンくず・サイトマップなし。内部リンク限定的</td>
+            <td>titleにKW含有。H1重複あり。パンくず・FAQスキーマなし。診療カテゴリのリンク構造は良好</td>
+          </tr>
+          <tr>
+            <td>外部対策</td>
+            <td>参照ドメイン264で競合トップ。DR18。<span class="val-warn">公的機関からの被リンク（協賛リンク等）の獲得余地あり</span></td>
+            <td>参照ドメイン9と極端に少ない。DR13。永井産婦人科病院（同グループ）との連携リンクあり。※アイリスは永井産婦人科病院の資本で開院したグループクリニック。永井は郊外（幸町・バス圏）のため直接競合にはならないが、グループ全体のSEO資産を共有している可能性あり</td>
+            <td>参照ドメイン162、DR31と最高値。老舗クリニックとしての自然な被リンク蓄積</td>
+            <td>参照ドメイン68、DR16。20年の運営歴で自然な被リンクあり</td>
+            <td>参照ドメイン64、DR9。積極的な被リンク施策は見られない</td>
+            <td>参照ドメイン32、DR8。被リンク76と最少。新しめのクリニックか</td>
+          </tr>
+          <tr>
+            <td>E-E-A-T対策</td>
+            <td>院長紹介ページあり（丸橋和子医師、産婦人科専門医・性感染症認定医等）。経歴・資格・所属学会の記載あり。<span class="val-warn">ガイドライン・公的機関への発リンクなし</span></td>
+            <td>「経験豊富なベテラン医師」の記載のみ。具体的な資格・学歴なし。公的機関発リンクなし</td>
+            <td class="val-warn">院長プロフィール・経歴なし。専門医情報なし。公的機関発リンクなし</td>
+            <td>「先代から20年」の経歴記載あり。連携医療機関を具体的に列挙。専門医資格は未記載</td>
+            <td>「女性院長・女性医師」の明記あり。具体的な資格・経歴は不足。公的機関発リンクなし</td>
+            <td>院長名・「乳腺専門医/産婦人科専門医」を明記。連携医療機関7院を列挙。コラムの監修表記なし</td>
+          </tr>
+          <tr>
+            <td>コンテンツ対策</td>
+            <td>コラムページあり（お知らせ寄りでSEO特化していない）。FAQ・ピルFAQあり。<span class="val-warn">中絶・モナリザタッチの周辺KW記事が不足。SEO用メディアの新設余地あり</span></td>
+            <td>お知らせ3件のみ。医学情報コラムなし。FAQページあり。診療ページ17科目と多い</td>
+            <td>ブログ「元気の素」で定期更新。妊娠出産Q&Aあり。汎用FAQなし</td>
+            <td>トピックスで医療情報を定期更新。症状別・疾患別ページ整備。FAQあり</td>
+            <td>コラム・ブログなし。FAQページあり。診療6カテゴリで基本情報のみ</td>
+            <td>医療コラムあり（約9記事）。FAQ専用ページなし。診療ページは乳腺4+婦人科8項目</td>
+          </tr>
+          <tr>
+            <td>その他補足</td>
+            <td>WEB問診・待ち状況確認を実装。予約不要。「女性応援」の独自コンセプト。セクシュアリティ対応</td>
+            <td>digikar-smart予約連携。オンライン診療対応。永井産婦人科病院との役割分担を明示</td>
+            <td>院内助産院・緩和ケア・運動療法。マタニティクラス等の充実サポート。Instagram連携</td>
+            <td>予約不要・院外待機対応。3つの受付時間帯。複数駅からのアクセス表記</td>
+            <td>予約不要。番号呼び出しでプライバシー配慮。オンライン予約なし</td>
+            <td>LINE/WEB予約対応。駅徒歩1分。全員女性スタッフ。乳腺+婦人科の同時受診可</td>
+          </tr>
+          <tr>
+            <td>総評</td>
+            <td>指名検索・トラフィック・被リンクは競合トップ。院長情報はあるが発リンク未活用。titleタグ・見出しタグの最適化、SEO特化メディアの新設、公的被リンク（協賛リンク）獲得が改善機会</td>
+            <td>診療ページ数は最多で構造化データも実装。被リンクの少なさが弱点。コンテンツ拡充が課題</td>
+            <td>DR31と被リンク基盤は最強。ブログ更新あり。E-E-A-T（医師情報）の欠如が致命的な弱点</td>
+            <td>疾患別ページの網羅性が強み。20年の運営歴。構造化データとE-E-A-Tの強化が必要</td>
+            <td>KW数27・コンテンツ不足が深刻。女性医師の差別化はあるが、オンライン施策が弱い</td>
+            <td>専門医資格の明記はE-E-A-Tで優位。駅近+女性スタッフの訴求。コラム・FAQの拡充余地あり</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 改善提案 -->
+  <section class="section">
+    <h2 class="section-title">改善提案</h2>
+
+    <!-- すぐにできること -->
+    <div class="card" style="border-left: 4px solid var(--color-main);">
+      <h3>Phase 1: すぐにできること（内部対策・E-E-A-T）</h3>
+    </div>
+
+    <!-- 1. titleタグ -->
+    <div class="card">
+      <h3>1. titleタグの最適化</h3>
+      <p style="margin-bottom:12px;">現状のTOPページのtitleタグは「まるはし女性応援クリニック」のみで、エリア名・診療科が含まれていません。</p>
+      <div class="table-wrap">
+        <table style="min-width:500px;">
+          <thead>
+            <tr>
+              <th style="width:80px;">状態</th>
+              <th>titleタグ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="val-warn">現状</span></td>
+              <td>まるはし女性応援クリニック</td>
+            </tr>
+            <tr>
+              <td><span class="val-top">改善案A</span></td>
+              <td>立川駅の婦人科・泌尿器科まるはし女性応援クリニック</td>
+            </tr>
+            <tr>
+              <td><span class="val-top">改善案B</span></td>
+              <td>まるはし女性応援クリニック【公式】立川駅徒歩5分の婦人科・泌尿器科</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="section-note">* 区切り線（|）でサイト名を分けると、Googleが検索結果で省略する可能性があるため、1つのフレーズとして記述する</p>
+      <p class="section-note">* 「立川駅」のエリア名+「婦人科・泌尿器科」の診療科名を左寄せで入れることで「立川 婦人科」等の順位改善が期待できる</p>
+    </div>
+
+    <!-- 2. 各ページのtitleタグ -->
+    <div class="card">
+      <h3>2. 各診療ページのtitleタグ最適化</h3>
+      <p style="margin-bottom:12px;">各ページのtitleも検索ボリュームの多いKWに合わせて調整すべきです。</p>
+      <div class="table-wrap">
+        <table style="min-width:600px;">
+          <thead>
+            <tr>
+              <th>ページ</th>
+              <th>現状のtitle</th>
+              <th>改善案</th>
+              <th>理由</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>緊急避妊ページ</td>
+              <td><span class="val-warn">緊急避妊薬のご案内</span></td>
+              <td><span class="val-top">アフターピル処方のご案内まるはし女性応援クリニック</span></td>
+              <td>「アフターピル」の方が検索Vol（60）が大きい。競合はいずれも「緊急避妊」表記のため「アフターピル」をtitleに入れることで差別化にもなる。TOPのtitleにエリア名が入るため個別ページでは「立川」は不要</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 3. 見出しタグ -->
+    <div class="card">
+      <h3>3. TOPページの見出しタグ（Hタグ）の整理</h3>
+      <p style="margin-bottom:12px;">現状のTOPページは見出しタグの構造に問題があります。</p>
+      <div class="table-wrap">
+        <table style="min-width:600px;">
+          <thead>
+            <tr>
+              <th style="width:100px;">タグ</th>
+              <th>現状</th>
+              <th>改善方針</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="val-warn">H1</span></td>
+              <td><span class="val-warn">不在</span></td>
+              <td>以下のいずれかを設定（titleタグと完全一致である必要はありません）<br>案A: 「立川駅の婦人科・泌尿器科まるはし女性応援クリニック」<br>案B: 「まるはし女性応援クリニック【公式】立川駅徒歩5分の婦人科・泌尿器科」<br>案C: 「まるはし女性応援クリニック」（シンプルにクリニック名のみ）</td>
+            </tr>
+            <tr>
+              <td>H2</td>
+              <td>関係のないテキストがH2に設定されている</td>
+              <td>サイトのセクション構造に合わせて適切に設定（診療内容・クリニック紹介・アクセス等）</td>
+            </tr>
+            <tr>
+              <td>H3</td>
+              <td>存在しない</td>
+              <td>H2の下位階層として必要に応じて設定</td>
+            </tr>
+            <tr>
+              <td>H4</td>
+              <td>「まるはし女性応援クリニック」が入っている</td>
+              <td>不要なので削除。見出し階層はH1→H2→H3の順で正しく構造化する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 4. E-E-A-T発リンク -->
+    <div class="card">
+      <h3>4. E-E-A-T強化：発リンクの設置</h3>
+      <p style="margin-bottom:12px;">YMYL（医療）領域では、公的機関・学会・ガイドラインへの発リンクが信頼性シグナルとして重要です。競合も未実施のため差別化ポイントになります。</p>
+      <div class="table-wrap">
+        <table style="min-width:600px;">
+          <thead>
+            <tr>
+              <th>対象ページ</th>
+              <th>設置すべき発リンク</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>院長紹介ページ</td>
+              <td>所属学会（日本産科婦人科学会、日本性感染症学会等）のホームページへのリンクを各学会名に埋め込む</td>
+            </tr>
+            <tr>
+              <td>各診療ページ</td>
+              <td>引用・参照している論文やガイドラインへのリンクを設置。厚生労働省・学会の公式ガイドライン等</td>
+            </tr>
+            <tr>
+              <td>緊急避妊ページ</td>
+              <td>緊急避妊に関する厚労省のガイドライン、WHO推奨等への発リンク</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5. パンくず -->
+    <div class="card">
+      <h3>5. パンくずリストの実装</h3>
+      <p style="margin-bottom:12px;">パンくずリストとは、ページの階層構造を示すナビゲーションです。ユーザーが「今サイトのどこにいるか」を把握でき、Googleにもサイト構造を正しく伝える効果があります。</p>
+      <p style="margin-bottom:12px;">例えば、競合のアイリスウィメンズクリニックでは以下のように表示されています：</p>
+      <div style="background:#fff; border:1px solid var(--color-border); border-radius:8px; padding:12px 16px; margin-bottom:12px; font-size:13px;">
+        <span style="color:var(--color-main);">ホーム</span>
+        <span style="color:#999; margin:0 6px;">></span>
+        <span style="color:var(--color-main);">診療案内</span>
+        <span style="color:#999; margin:0 6px;">></span>
+        <span style="color:#666;">緊急避妊</span>
+      </div>
+      <p style="margin-bottom:8px; font-size:12px; color:var(--color-sub);">参考: <a href="https://womens-tachikawa.iris-clinic.jp/treatment/emergency-contraception/" target="_blank">アイリスウィメンズクリニック立川 - 緊急避妊ページ</a></p>
+      <p>貴院のサイトは構造化データ（BreadcrumbList）は実装済みのため、HTML側の表示を追加すれば効果が出やすい状態です。</p>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="card" style="border-left: 4px solid var(--color-benchmark); margin-top:32px;">
+      <h3>Phase 2: DR（ドメインレーティング）の向上</h3>
+      <p style="margin-bottom:8px;">どのキーワードを狙うにしても、サイト全体のドメインパワーを上げることでサイト全体の検索順位が改善します。今回のように広く浅く順位を上げたい場合は特に重要です。</p>
+    </div>
+
+    <!-- 6. 協賛リンク -->
+    <div class="card">
+      <h3>6. 協賛リンクの獲得（まず最初にやるべき被リンク施策）</h3>
+      <p style="margin-bottom:12px;">被リンク営業を行うにしても、まずDRがある程度ないと効果が薄いです。最初のステップとして、協賛リンクで土台を作るのが効果的です。</p>
+      <div class="table-wrap">
+        <table style="min-width:500px;">
+          <thead>
+            <tr>
+              <th>施策</th>
+              <th>内容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>協賛リンク</td>
+              <td>がん撲滅運動等の公的キャンペーンに登録。厚生労働省のサイト等から「協賛クリニック」として紹介リンクを獲得できる</td>
+            </tr>
+            <tr>
+              <td>期待効果</td>
+              <td>公的機関からの被リンクはDR向上に非常に効果的。競合も未実施のため、これだけでDRの差別化になる</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 7. 被リンク営業 -->
+    <div class="card">
+      <h3>7. 被リンク営業（DR向上後に実施）</h3>
+      <p>協賛リンク等でDRの土台ができた後に、関連メディア・医療ポータル等への被リンク営業を実施。DRが高い状態で営業する方がリンク獲得率が上がる。</p>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="card" style="border-left: 4px solid var(--color-sub); margin-top:32px;">
+      <h3>Phase 3: コンテンツ拡充（中長期施策）</h3>
+      <p style="margin-bottom:8px;">工数・費用がかかるため、Phase 1・2の効果を見ながら段階的に実施。</p>
+    </div>
+
+    <!-- 8. メディア新設 -->
+    <div class="card">
+      <h3>8. SEO特化メディアの新設</h3>
+      <p style="margin-bottom:12px;">現状のコラム欄はお知らせ寄りでSEO記事を掲載するのに適した構成ではありません。</p>
+      <div class="table-wrap">
+        <table style="min-width:500px;">
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>内容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>現状のコラム</td>
+              <td>お知らせとして運用を継続</td>
+            </tr>
+            <tr>
+              <td>新設メディア</td>
+              <td>サブディレクトリ（例: /media/）に医学的なSEO記事を投稿するメディアを新設</td>
+            </tr>
+            <tr>
+              <td>記事テーマ</td>
+              <td>モナリザタッチ・中絶・アフターピルの周辺KWでトピッククラスター記事を展開（下記参照）</td>
+            </tr>
+            <tr>
+              <td>効果</td>
+              <td>潜在層からの流入獲得 + サイト全体の評価向上</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- トピッククラスター：モナリザタッチ -->
+  <section class="section">
+    <h2 class="section-title">コンテンツ戦略 - モナリザタッチ トピッククラスター</h2>
+    <p style="margin-bottom:16px; color:var(--color-sub); font-size:13px;">モナリザタッチ（Vol: 1,900）をピラーページとし、潜在層の悩みKWからの流入を集約する構成案。</p>
+
+    <div class="card">
+      <h3>クラスター1: 更年期・閉経後の悩み</h3>
+      <div class="table-wrap">
+        <table style="min-width:600px;">
+          <thead>
+            <tr>
+              <th>記事テーマ</th>
+              <th>狙うKW</th>
+              <th>月間Vol</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>閉経後のおりものの変化と対処法</td><td>閉経後 おりもの</td><td>1,900</td></tr>
+            <tr><td>更年期のおりもの異常の原因</td><td>更年期 おりもの</td><td>1,300</td></tr>
+            <tr><td>デリケートゾーンの乾燥・かゆみ対策</td><td>デリケートゾーン 乾燥</td><td>450</td></tr>
+            <tr><td>更年期の陰部かゆみの原因と治療</td><td>陰部 かゆみ 更年期</td><td>450</td></tr>
+            <tr><td>更年期の頻尿の原因と改善法</td><td>頻尿 更年期</td><td>150</td></tr>
+            <tr><td>GSM（閉経関連泌尿生殖器症候群）とは</td><td>GSM</td><td>2,100</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="section-note">クラスター合計 Vol: 約 6,350</p>
+    </div>
+
+    <div class="card">
+      <h3>クラスター2: 性交痛</h3>
+      <div class="table-wrap">
+        <table style="min-width:600px;">
+          <thead>
+            <tr>
+              <th>記事テーマ</th>
+              <th>狙うKW</th>
+              <th>月間Vol</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>性交痛の原因と種類を解説</td><td>性交痛 原因</td><td>2,500</td></tr>
+            <tr><td>セックスが痛い原因と対処法</td><td>セックス 痛い</td><td>2,000</td></tr>
+            <tr><td>性交痛はどの病院に行けばいい？</td><td>性交痛 病院</td><td>1,000</td></tr>
+            <tr><td>更年期の性交痛はなぜ起きる？</td><td>性交痛 更年期</td><td>300</td></tr>
+            <tr><td>性交痛は婦人科で相談できる？</td><td>性交痛 婦人科</td><td>150</td></tr>
+            <tr><td>性交痛へのレーザー治療（モナリザタッチ）</td><td>性交痛 レーザー</td><td>30</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="section-note">クラスター合計 Vol: 約 5,980</p>
+    </div>
+
+    <div class="card">
+      <h3>クラスター3: 見た目・フェムケア</h3>
+      <div class="table-wrap">
+        <table style="min-width:600px;">
+          <thead>
+            <tr>
+              <th>記事テーマ</th>
+              <th>狙うKW</th>
+              <th>月間Vol</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>デリケートゾーンの黒ずみの原因と改善法</td><td>デリケートゾーン 黒ずみ</td><td>14,000</td></tr>
+            <tr><td>フェムケアとは？始め方ガイド</td><td>フェムケア</td><td>14,000</td></tr>
+            <tr><td>産後の陰部の変化と対処法</td><td>産後陰部見た目</td><td>2,100</td></tr>
+            <tr><td>デリケートゾーンのたるみの原因と治療</td><td>デリケートゾーン たるみ</td><td>150</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="section-note">クラスター合計 Vol: 約 30,250</p>
+    </div>
+
+    <div class="card">
+      <h3>クラスター4: 産後・尿漏れ</h3>
+      <div class="table-wrap">
+        <table style="min-width:600px;">
+          <thead>
+            <tr>
+              <th>記事テーマ</th>
+              <th>狙うKW</th>
+              <th>月間Vol</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>くしゃみで尿漏れする原因と対策</td><td>くしゃみ 尿漏れ</td><td>1,000</td></tr>
+            <tr><td>腟レーザー治療の種類と違い</td><td>膣レーザー</td><td>700</td></tr>
+            <tr><td>膣のヒアルロン酸注入とは？</td><td>膣 ヒアルロン酸</td><td>350</td></tr>
+            <tr><td>膣が緩い？原因と改善方法</td><td>膣 緩い</td><td>300</td></tr>
+            <tr><td>繰り返す膀胱炎とGSMの関係</td><td>膀胱炎 繰り返す</td><td>300</td></tr>
+            <tr><td>インティマレーザーとモナリザタッチの違い</td><td>インティマレーザー</td><td>2,500</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="section-note">クラスター合計 Vol: 約 5,150</p>
+    </div>
+
+    <div class="card" style="background: var(--color-main-light); border-left: 4px solid var(--color-main);">
+      <h3>トピッククラスター全体の潜在流入</h3>
+      <p style="font-size:15px; margin-bottom:8px;"><strong>ピラーページ:</strong> モナリザタッチとは（Vol: 1,900）</p>
+      <p style="font-size:15px; margin-bottom:8px;"><strong>クラスター記事からの潜在流入:</strong> 合計 約 <strong style="color:var(--color-main); font-size:20px;">47,730</strong> /月</p>
+      <p style="font-size:13px; color:var(--color-sub);">各記事からピラーページ（モナリザタッチ）への内部リンクで集約し、来院・問い合わせにつなげる構成</p>
+    </div>
+  </section>
+
+  <!-- モナリザタッチ集客テスト -->
+  <section class="section">
+    <h2 class="section-title">ご参考: モナリザタッチ集客のテスト施策</h2>
+    <p style="margin-bottom:16px;">モナリザタッチの集客を強化する方法として、患者様の悩みに寄り添った記事を作成し、モナリザタッチの施術ページと合わせてリスティング広告で配信するという手法があります。</p>
+    <p style="margin-bottom:16px;">以下は、モナリザタッチで解決できる悩みに関連するキーワードの候補です。先生の肌感で<strong>「こういう悩みで来院される方が多い」</strong>というものがあれば、その中から3つほど選んでいただき、お試しで記事を作成することも可能です。ご興味があればお気軽にお申し付けください。</p>
+
+    <div class="card">
+      <h3>キーワード候補一覧（モナリザタッチで解決できる悩み）</h3>
+      <div class="table-wrap">
+        <table style="min-width:700px;">
+          <thead>
+            <tr>
+              <th style="width:30px;">#</th>
+              <th>記事テーマ</th>
+              <th>メインKW</th>
+              <th>月間Vol</th>
+              <th>悩みカテゴリ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>性交痛の原因と治療法まとめ</td><td>性交痛 原因</td><td>2,500</td><td>性交痛</td></tr>
+            <tr><td>2</td><td>GSM（閉経関連泌尿生殖器症候群）とは</td><td>GSM</td><td>2,100</td><td>更年期</td></tr>
+            <tr><td>3</td><td>セックスが痛い原因と対処法</td><td>セックス 痛い</td><td>2,000</td><td>性交痛</td></tr>
+            <tr><td>4</td><td>閉経後のおりものの変化と対処法</td><td>閉経後 おりもの</td><td>1,900</td><td>更年期</td></tr>
+            <tr><td>5</td><td>更年期のおりもの異常の原因</td><td>更年期 おりもの</td><td>1,300</td><td>更年期</td></tr>
+            <tr><td>6</td><td>尿漏れの原因と女性の対策</td><td>尿漏れ 原因 女性</td><td>1,100</td><td>尿漏れ</td></tr>
+            <tr><td>7</td><td>くしゃみ・咳で尿漏れする原因</td><td>くしゃみ 尿漏れ</td><td>1,000</td><td>尿漏れ</td></tr>
+            <tr><td>8</td><td>性交痛は何科に行けばいい？</td><td>性交痛 病院</td><td>1,000</td><td>性交痛</td></tr>
+            <tr><td>9</td><td>咳で尿漏れする女性の原因と対策</td><td>咳 尿漏れ</td><td>800</td><td>尿漏れ</td></tr>
+            <tr><td>10</td><td>陰部のかゆみ（更年期）の原因と治療</td><td>陰部 かゆみ 更年期</td><td>450</td><td>更年期</td></tr>
+            <tr><td>11</td><td>陰部のヒリヒリ感の原因と対処法</td><td>陰部 ヒリヒリ</td><td>450</td><td>デリケートゾーン</td></tr>
+            <tr><td>12</td><td>更年期のおりものが臭い原因</td><td>更年期 おりもの 臭い</td><td>350</td><td>更年期</td></tr>
+            <tr><td>13</td><td>更年期の性交痛はなぜ起きる？</td><td>性交痛 更年期</td><td>300</td><td>性交痛</td></tr>
+            <tr><td>14</td><td>産後の尿漏れが治らない原因と治療</td><td>産後 尿漏れ 治らない</td><td>300</td><td>尿漏れ</td></tr>
+            <tr><td>15</td><td>萎縮性腟炎の症状と治療法</td><td>萎縮性腟炎 治療</td><td>100</td><td>更年期</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="section-note">* 検索ボリュームは Ahrefs 推計値（2026年3月時点）</p>
+      <p class="section-note">* いずれもモナリザタッチで症状の改善が期待できる悩みに絞っています</p>
+    </div>
+
+    <div class="card" style="background: var(--color-main-light); border-left: 4px solid var(--color-main);">
+      <h3>テスト施策のイメージ</h3>
+      <p style="margin-bottom:8px;">上記の中から先生が<strong>「この悩みで来る方が多い」</strong>と感じるものを <strong>3つ</strong> 選んでいただければ、お試しで記事を作成いたします。</p>
+      <p style="margin-bottom:8px;">その3記事 + モナリザタッチ施術ページの <strong>計4ページ</strong> をリスティング広告で配信し、反応を見るテスト運用が可能です。</p>
+      <p style="font-size:13px; color:var(--color-sub);">ご興味があればお気軽にお申し付けください。</p>
+    </div>
+
+    <div class="card">
+      <h3>効果計測のオペレーション案</h3>
+      <p style="margin-bottom:12px;">貴院は予約制ではないため、通常のWeb予約経由の計測ができません。そこで、記事ページ上で<strong>初回限定のお試し価格</strong>を訴求し、来院時にスクリーンショットを提示していただく方法をご提案します。</p>
+      <div class="table-wrap">
+        <table style="min-width:600px;">
+          <thead>
+            <tr>
+              <th style="width:120px;">項目</th>
+              <th>内容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>訴求内容</td>
+              <td>モナリザタッチ 初回限定お試し価格（例: 通常55,000円 → 35,000円）<br>※金額は先生にご判断いただきます</td>
+            </tr>
+            <tr>
+              <td>来院時の流れ</td>
+              <td>記事ページに記載のお試し価格画面のスクリーンショットを、診察受付でご提示いただく</td>
+            </tr>
+            <tr>
+              <td>効果計測</td>
+              <td>スクリーンショット提示数 = 広告経由の来院数として計測可能</td>
+            </tr>
+            <tr>
+              <td>メリット</td>
+              <td>予約システムの変更が不要。既存のオペレーションに乗せられる。広告の費用対効果が明確に把握できる</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="section-note">* このオペレーションであれば、予約制でなくても広告のテストマーケティングが可能です</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; 2026 <a href="https://zoen-tech.co.jp/" target="_blank">ZOEN-TECH CO., LTD.</a> All rights reserved.</p>
+</footer>
+
+</body>
+</html>
