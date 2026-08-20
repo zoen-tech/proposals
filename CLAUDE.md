@@ -15,7 +15,7 @@ partners/<ランダム12文字>/  ← 取引先向けの短命な商談資料（
 - `index.html` のパスワードは**簡易的な導線制御であってアクセス制御ではない**（`content.html` は直リンクで開ける。パスワードハッシュも `index.html` 内にある）
 
 ## 対外共有ドキュメントの機密3区分（2026-07-18決定）
-どこに置くかは内容の機密度で決める。詳細な背景 → `repo_workspace-setup/docs/decisions/2026-07-18-external-docs-hosting-rules.md`
+どこに置くかは内容の機密度で決める。詳細な背景 → `repo_zoen-tech/docs/decisions/2026-07-18-external-docs-hosting-rules.md`
 
 | 区分 | 内容 | 置き場 |
 |------|------|--------|
